@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TravelStory } from '../TravelStories/TravelStories.model';
 
 @Component({
   selector: 'app-travel-stories',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelStoriesComponent implements OnInit {
 
+  selectedloc:TravelStory;
   constructor() { }
 
   ngOnInit() {

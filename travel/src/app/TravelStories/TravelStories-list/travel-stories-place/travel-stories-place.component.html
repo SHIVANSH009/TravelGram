@@ -1,0 +1,16 @@
+<a
+href="#"
+class="list-group-item clearfix"
+(click)="onselected()">
+<div class="float-left">
+<h4 class="list-group-item-heading">{{ tax.name }}</h4>
+<p class="list-group-item-text">{{ tax.description }}</p>
+</div>
+<span class="float-right">
+    <img 
+    [src] = "tax.image"
+    alt="{{ tax.name }}"
+    class="img-responsive"
+    style="max-height: 50px;">
+</span>
+</a>

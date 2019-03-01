@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { places } from '../shared/places.module';
 
 @Component({
   selector: 'app-travel-spots',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelSpotsComponent implements OnInit {
 
+  place: places [] = [new places('Beach'),new places('Meausem'),];
   constructor() { }
 
   ngOnInit() {
   }
 
+  onplaceadded(x:places)
+  {
+    this.place.push(x);
+  }
 }

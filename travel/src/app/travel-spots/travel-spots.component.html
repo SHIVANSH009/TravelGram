@@ -1,7 +1,14 @@
 <div class="row">
-  <div class="col-xs-10">
-    <app-travel-spots-edit></app-travel-spots-edit>
+  <div class="col-md-7">
+    <app-travel-spots-edit
+    (placeadded)="onplaceadded($event)"></app-travel-spots-edit>
     <hr>
-    <p>the list here</p>
+    <ul class="list-group">
+      <a class="list-group-item" 
+      style="cursor: pointer"
+      *ngFor="let x of place">
+    {{ x.pl_name }}
+    </a>
+    </ul>
   </div>
 </div>

@@ -1,8 +1,14 @@
 <div class="row clearfix">
   <div class="col-md-5">
-    <app-travel-stories-list></app-travel-stories-list>
+    <app-travel-stories-list
+    (locwasselected)="selectedloc = $event"></app-travel-stories-list>
   </div>
-    <div class="col-md-7 ">
-       <app-travel-stories-moments></app-travel-stories-moments>
+    <div class="col-md-7">
+       <app-travel-stories-moments
+       *ngIf="selectedloc; else info"
+       [xyz]="selectedloc"></app-travel-stories-moments>
+       <ng-template #info>
+         <p>select location.</p>
+       </ng-template>
     </div>
 </div>
