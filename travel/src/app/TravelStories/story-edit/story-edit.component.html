@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-md-9">
+    <form [formGroup]="locform" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-11">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!locform.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="oncancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              formControlName="imagePath"
+              class="form-control"
+              #imagePath
+              >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+          <img src="" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              formControlName="description"
+              class="form-control"
+              rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11" formArrayName="moments">
+          <div
+            class="row"
+            *ngFor="let mcrtl of locform.get('moments').controls; let i=index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-md-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+              >
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="ondeleteloci(i)"
+                >X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onadding()"
+                >Add Place</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

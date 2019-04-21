@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TravelStory } from '../TravelStories.model';
+import { TravelStoryService } from '../travelstory.service';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-travel-stories-moments',
@@ -7,10 +9,32 @@ import { TravelStory } from '../TravelStories.model';
   styleUrls: ['./travel-stories-moments.component.css']
 })
 export class TravelStoriesMomentsComponent implements OnInit {
-  @Input() xyz:TravelStory;
-  constructor() { }
+   xyz:TravelStory;
+   id: number;
+  constructor(private tsservice: TravelStoryService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params:Params) => {
+        this.id = +params['id'];
+        this.xyz = this.tsservice.getstory(this.id);
+      }
+    )
+  }
+  onaddplacelist()
+  {
+    this.tsservice.addplacestolist(this.xyz.place);
+  }
+  oneditlist()
+  {
+    this.router.navigate(['edit'],{relativeTo: this.route});
   }
 
+  ondeletelist()
+  {
+    this.tsservice.deleteit(this.id);
+    this.router.navigate(['/Travelstory']);
+  }
 }

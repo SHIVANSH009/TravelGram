@@ -12,5 +12,5 @@ export class AppComponent {
   {
     this.loadedfeature = feature;
   }
-  title = 'travel';
+  title = 'travelGram';
 }

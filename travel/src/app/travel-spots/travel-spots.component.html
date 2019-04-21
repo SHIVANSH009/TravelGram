@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-7">
-    <app-travel-spots-edit
-    (placeadded)="onplaceadded($event)"></app-travel-spots-edit>
+    <app-travel-spots-edit></app-travel-spots-edit>
     <hr>
     <ul class="list-group">
       <a class="list-group-item" 
       style="cursor: pointer"
-      *ngFor="let x of place">
+      *ngFor="let x of place; let i = index"
+      (click) = "onedititem(i)">
     {{ x.pl_name }}
     </a>
     </ul>

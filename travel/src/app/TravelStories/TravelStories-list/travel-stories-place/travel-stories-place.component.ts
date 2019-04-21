@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TravelStory } from '../../TravelStories.model';
 
 @Component({
@@ -8,14 +8,7 @@ import { TravelStory } from '../../TravelStories.model';
 })
 export class TravelStoriesPlaceComponent implements OnInit {
 @Input() tax: TravelStory;
-@Output() locSelected = new EventEmitter<void>();
-  constructor() { }
-
+@Input() index: number;
   ngOnInit() {
   }
-  onselected()
-  {
-    this.locSelected.emit();
-  }
-
 }

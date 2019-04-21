@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TravelStory } from '../TravelStories/TravelStories.model';
+import { TravelStoryService } from '../TravelStories/travelstory.service';
 
 @Component({
   selector: 'app-travel-stories',
@@ -8,7 +8,6 @@ import { TravelStory } from '../TravelStories/TravelStories.model';
 })
 export class TravelStoriesComponent implements OnInit {
 
-  selectedloc:TravelStory;
   constructor() { }
 
   ngOnInit() {
